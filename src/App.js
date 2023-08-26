@@ -9,6 +9,7 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from "@mui/material/styles";
+import DashboadLayout from "./components/Layout/DashboadLayout";
 
 function App() {
   let theme = createTheme();
@@ -18,7 +19,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Routes>
           {publicRoutes.map((route, index) => {
-            const Layout = route.layout === null ? Fragment : DefaultLayout;
+            const Layout = route.layout === 'dashboard' ? DashboadLayout : (route.layout === null ? Fragment : DefaultLayout);
             const Page = route.component;
             return (
               <Route
